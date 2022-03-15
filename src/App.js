@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -15,7 +15,7 @@ export const GlobalContext = React.createContext();
 function App() {
   const [state, dispatch] = useCitiesList();
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GlobalContext.Provider value={{ state, dispatch }}>
         <div className="Main">
           <Route path="/">
@@ -27,7 +27,7 @@ function App() {
           <Route path="/city/:city" component={SingleCity} />
         </div>
       </GlobalContext.Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
